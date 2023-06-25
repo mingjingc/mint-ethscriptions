@@ -15,3 +15,7 @@ npm install --save ethers
 ```sh
 node main.js
 ```
+
+# 后续
+
+如果你有任何建议，可以提 PR 或 发送到我的邮箱 mingjingc3721@gmail.com

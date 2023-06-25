@@ -47,7 +47,7 @@ async function batchMintEthscriptions(wallet, toAddress, from, count, tick) {
 }
 
 async function main() {
-  console.log('Ethscriptions小工具，Make By @BoxMrChen with 💗')
+  console.log('Ethscriptions小工具～')
   const pk = await question('请输入私钥(十六进制): ');
   const toAddress = await question('输入目标地址(十六进制): ')
   const from = await question('请输入起始ID: ')
