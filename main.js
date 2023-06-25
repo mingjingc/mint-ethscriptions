@@ -9,8 +9,8 @@ const rl = readline.createInterface({
 
 const question = util.promisify(rl.question).bind(rl);
 
-function createText(id) {
-  return `data:,{"p":"erc-20","op":"mint","tick":"eths","id":"${id}","amt":"1000"}`
+function createText(tick, id) {
+  return `data:,{"p":"erc-20","op":"mint","tick":"${tick}","id":"${id}","amt":"1000"}`
 }
 
 function stringToHex(string) {
@@ -18,7 +18,7 @@ function stringToHex(string) {
 }
 
 // 批量mint Ethscriptions
-async function batchMintEthscriptions(wallet, toAddress, from, count) {
+async function batchMintEthscriptions(wallet, toAddress, from, count, tick) {
   let nonce = await wallet.getTransactionCount()
   const list = []
   for (let i = from; i < from + count; i++) {
@@ -52,6 +52,7 @@ async function main() {
   const toAddress = await question('输入目标地址(十六进制): ')
   const from = await question('请输入起始ID: ')
   const count = await question('请输入数量: ')
+  const tick = await question('请输入tick: ')
 
   // 如果rpc连接有问题可更改rpc链接，像infura、quicknode
   const providerUrl = "https://rpc.ankr.com/eth"; 
@@ -59,7 +60,7 @@ async function main() {
 
   const wallet = new ethers.Wallet(pk, provider)
 
-  await batchMintEthscriptions(wallet, toAddress, parseInt(from, 10), parseInt(count, 10))
+  await batchMintEthscriptions(wallet, toAddress, parseInt(from, 10), parseInt(count, 10), tick)
 
   process.exit()
 }
