@@ -16,6 +16,10 @@ npm install --save ethers
 node main.js
 ```
 
+## 公用rpc
+Ethereum:  https://rpc.ankr.com/eth
+BSC: https://rpc.ankr.com/bsc
+
 # 后续
 
 如果你有任何建议，可以提 PR 或 发送到我的邮箱 mingjingc3721@gmail.com
